@@ -35,7 +35,7 @@ const App = () => {
     <div className="App">
       {/* Add SearchBar and Posts here to render them */}
       <SearchBar setSearch = {setSearch}/>
-      <Posts likePost = {likePost} posts = {posts} setComment = {setComment} />
+      <Posts likePost = {likePost} posts = {posts} setComment = {setComment} newComment = {newComment}/>
       {/* Check the implementation of each component, to see what props they require, if any! */}
     </div>
   );
