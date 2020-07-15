@@ -19,9 +19,27 @@ const App = () => {
   // Create a state called 'posts' to hold the list of posts, initializing to dummyData.
   // To make the search bar work (which is stretch) we'd need another state to hold the search term.
   const [posts, setPosts]  = useState(dummyData);
-  //const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('');
+
+
+  //const resetInputField = () => {
+    //setSearch('');
+  //};
   
-  
+    // const searchFunction = (event) => {
+    //   event.preventDefault();
+    //   resetInputField();
+    //   posts.forEach(post => {
+
+      
+    //     if(Object.values(post).includes(search)||(!Object.values(post).includes(search))){
+    //       console.log(post)
+    //       return post;
+    //     }
+    //   }
+    //     )
+    // };
+
 
   const likePost = (postId) => {
     setPosts(
@@ -37,8 +55,17 @@ const App = () => {
   return (
     <div className="App">
       {/* Add SearchBar and Posts here to render them */}
-      <SearchBar /*setSearch = {setSearch}*/ />
-      <Posts likePost = {likePost} posts = {posts}/>
+      <SearchBar setSearch = {setSearch} search = {search}/>
+      <Posts likePost = {likePost} 
+      
+      posts = {posts.filter(post => {
+        if(post.username.includes(search)||!(search)){
+          return post
+        }
+        return false;
+      })}      
+      
+      />
       {/* Check the implementation of each component, to see what props they require, if any! */}
     </div>
   );
