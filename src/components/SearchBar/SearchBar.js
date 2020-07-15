@@ -6,7 +6,7 @@ import { faHeart, faCircle, faCompass } from '@fortawesome/free-regular-svg-icon
 import "./SearchBar.css";
 
 const SearchBar = (props) => {
-  const {setSearch, search, searchFunction} = props
+  const {setSearch, search} = props
 
 const handleChange = event => {
     setSearch(event.target.value);  
